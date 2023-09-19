@@ -1,0 +1,169 @@
+<table width="100%" border="0">
+    <tr>
+        <td valign="top">
+            <ul>
+              <li><a href=" ">Account</a ></li>
+              <li><a href="/Kanbas/Dashboard/screen.html">Dashboard</a ></li>
+              <li><a href="/Kanbas/Courses/Home/screen.html">Courses</a ></li>
+              <li><a href="#">Calendar</a ></li>
+              <li><a href="#">Inbox</a ></li>
+              <li><a href="#">History</a ></li>
+              <li><a href="#">Studio</a ></li>
+              <li><a href="#">Commons</a ></li>
+              <li><a href="#">Help</a ></li>
+            </ul>
+          </td>
+        <td valign="top">
+            <ul>
+              <li><a href="../Home/screen.html">Home</a ></li>
+              <li><a href="../Modules/index.html">Modules</a ></li>
+              <li>
+                <a href="../Assignments/screen.html">Assignments</a >
+              </li>
+              <li><a href="../Grades/screen.html">Grades</a ></li>
+              <li><a href="#">People</a ></li>
+              <li><a href="#">Panopto Video</a ></li>
+              <li><a href="#">Discussions</a ></li>
+              <li><a href="#">Anouncements</a ></li>
+              <li><a href="#">Pages</a ></li>
+              <li><a href="#">Files</a ></li>
+              <li><a href="#">Rubrics</a ></li>
+              <li><a href="#">Outcomes</a ></li>
+              <li><a href="#">Outcomes</a ></li>
+              <li><a href="#">Collabrations</a ></li>
+              <li><a href="#">Syllabus</a ></li>
+              <li><a href="#">Settings</a ></li>
+            </ul>
+          </td>
+        <td valign="top">
+            <h2>Course Details</h2>
+            <br />
+            Names: CS4550 12631 Web Development SEC 01 Fall 2023 [BOS-1-TR]
+            <br />
+            <p></p >
+            Course Code: CS4550.12631.202410
+            <br />
+            <p></p >
+            Blueprint Course: No
+            <br />
+            <p></p >
+            Course Template: 
+            <input type="checkbox" id="textEntry" />
+            <label for="textEntry">Enable course as a Course Template</label><br />
+            <p></p >
+            
+            <table width="100%">
+                <form action="/Kanbas/Courses/Home/screen.html">
+                    <label for="timezone">Time Zone:</label>
+                    <select id="timezone" name="timezone">
+                        <option value="eastern">Eastern Time(US & Canada) (-05:00/-4:00)</option>
+                        <option value="western">Western Time(US & Canada) (-05:00/-4:00)</option>
+                    </select><br><br>
+            SIS ID: CS4550.12631.202410
+            <br />
+            <p></p >
+            Subaccount: CS Undergrad
+            <br />
+            <p></p >
+            Term: 202410_1 Fall 2023 Semester Full term
+            <br />
+            <p></p >
+            Participation: 
+            <select>
+                <option>Term</option>
+              </select>
+              <p>
+            </p >
+            Course participation is limited to term start and end dates.
+            <br />
+            <h4>Start</h4>
+            <label for="start-date"></label>
+            <input type="date" id="start-date" name="start-date"><br><br>
+            <h4>End</h4>
+            <label for="start-date"></label>
+            <input type="date" id="start-date" name="start-date"><br><br>
+
+            <input type="checkbox" id="textEntry" />
+            <label for="textEntry">Restrict students from viewing course before term start date</label><br />
+
+            <input type="checkbox" id="textEntry" />
+            <label for="textEntry">Restrict students from viewing course after term end date</label><br />
+
+            <p></p >
+            Default due time: 
+            <select>
+                <option>Account default(11:59pm)</option>
+              </select>
+              <br />
+              This influences the user interface for setting due dates. It does not change the time due for any existing assignments.
+              <p>
+            </p >
+            Language: 
+            <select>
+                <option>Not set(user-configurable, defaults to English)</option>
+              </select>
+              <br />
+              This will override any user/system language preferences. This is only recommended for foreign language courses.
+              <p>
+            </p >
+            File Storage: 10000 megabytes
+            <p></p >
+            Course Template: 
+            <input type="checkbox" id="textEntry" />
+            <label for="textEntry">Launch SpeedGrader Filtered by Student Group</label><br />
+            <p></p >
+            Course Template: 
+            <input type="checkbox" id="textEntry" />
+            <label for="textEntry">Enable course grading scheme</label><br />
+            <p></p >
+            License: 
+            <select>
+                <option>Private(Copyrighted)</option>
+              </select>
+              <p>
+            </p >
+            File Copyright:
+            <input type="checkbox" id="textEntry" />
+            <label for="textEntry">Copyright and license information must be provided for files before they are published.</label><br />
+            <p></p >
+            Visibility:
+            If you need to make your course public please contact your administrator/support.
+            <p></p >
+            <select>
+                <option>Course</option>
+              </select>
+              <p>
+            </p >
+            <input type="checkbox" id="textEntry" />
+            <label for="textEntry">Include this course in the public course index</label><br />
+            <p>
+            </p >
+            Format:
+            <select>
+                <option>On-Campus</option>
+              </select>
+              <p>
+            </p >
+            Master Paths: 
+            <input type="checkbox" id="textEntry" />
+            <label for="textEntry">Enable individual learning paths for students based on assessment</label><br />
+            <p></p >
+            
+            <form id="textarea">
+                <label>Description:</label><br/>
+                <textarea cols="30" rows="10"></textarea>
+             </form>
+             
+
+                    <!-- <label for="enable-course">Enable Course:</label>
+                    <input type="checkbox" id="enable-course" name="enable-course"><br><br> -->
+                    <p></p >
+                    more options
+                    <br>
+                    <input type="submit" value="Upload Course Details">
+                </form>
+               <hr>
+            </table>
+        </td>
+    </tr>
+</table>
