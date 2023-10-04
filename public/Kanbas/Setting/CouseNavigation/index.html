@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="./screen.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<table border="0" width="100%">
+    <tr>
+        <td valign="top" rowspan="2" class="lab">
+            <ul class="" style="background: black">
+                <li><a href="#"><img src="../../../images/log.png" width="100%"/></a></li>
+                <li><a href="/public/Kanbas/Courses/Profile/screen.html"><i class="fa fa-solid fa-user text-secondary"></i><br>Account</a>
+                </li>
+                <li><a href="/public/Kanbas/KanbasNavigation/Dashboard/screen.html"><i class="fa fa-tachometer" aria-hidden="true"></i><br>Dashboard</a></li>
+                <li class="lab_active"><a href=""><i class="fa fa-book"></i>
+                    <br>Courses</a></li>
+                <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> <br>Calendar</a></li>
+                <li><a href="#"><i class="fa fa-inbox" aria-hidden="true"></i> <br>Inbox</a></li>
+                <li><a href="#"><i class="fa fa-history" aria-hidden="true"></i> <br>History</a></li>
+                <li><a href="#"><i class="fa fa-solid fa-desktop"></i> <br>Studio</a></li>
+                <li><a href="#"><i class="fa fa-solid fa-arrow-right"></i> <br>Commons</a></li>
+                <li><a href="#"><i class="fa fa-solid fa-question"></i> <br>Help</a></li>
+            </ul>
+        </td>
+        <td colspan="3" class="nav_lab">
+            <nav aria-label="breadcrumb" class="p-3 border-bottom w-100" style="overflow: hidden">
+                <ol class="breadcrumb float-start d-flex align-items-center m-0">
+                    <li class="breadcrumb-item"><a href="#"><i class="fa fa-solid fa-bars" style="color: #C33235;font-size: 26px"></i> <span class="fs-4 m-2" style="color: #C33235">CS4550.12631.202410</span></a></li>
+                    <li class="breadcrumb-item active" aria-current="page"></li>
+                </ol>
+            </nav>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" class="page_nav">
+            <ul>
+                <li ><a href="/public/Kanbas/Courses/Home/screen.html">Home</a></li>
+                <li><a href="/public/Kanbas/Courses/Modules/index.html">Modules</a></li>
+                <li><a href="/public/Kanbas/Courses/Assignments/index.html">Assignments</a></li>
+                <li><a href="/public/Kanbas/Courses/Grades/screen.html">Grades</a></li>
+                <li><a href="#">People</a></li>
+                <li><a href="#">Panopto Video</a></li>
+                <li><a href="#">Discussions</a></li>
+                <li><a href="#">Announcements</a></li>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">Files</a></li>
+                <li><a href="#">Rubrics</a></li>
+                <li><a href="#">Outcomes</a></li>
+                <li><a href="#">Collaborations</a></li>
+                <li><a href="#">Syllabus</a></li>
+                <li class="nav_active"><a href="/public/Kanbas/Setting/CouseNavigation/screen.css">Settings</a></li>
+            </ul>
+        </td>
+        <td valign="top" class="p-3">
+            <ul>
+                <!-- <li class="nav-item active">
+                    <a class="nav-link active" href="#">Course Details</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sections</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Navigation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Apps</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Feature Options</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Integrations</a>
+                </li> -->
+                <div style="display: flex; align-items: center;">
+                    <button><a href="/public/Kanbas/Courses/Home/screen.html">Course Details</a></button>
+                    <button><a href="#">Sections</a></button>
+                    <button><a href="../CouseNavigation/index.html">Navigation</a></button>
+                    <button>Apps</button>
+                    <button>Feature Options</button>
+                    <button>Integrations</button>
+                    </div>
+            </ul>
+            
+            <br>
+            <h5> Drag and drop items to reorder them in the course navigation</h5>
+            <ul class="list-group" style="width: 500px">
+                <li class="list-group-item">Home</li>
+                <li class="list-group-item">Modules</li>
+                <li class="list-group-item">Piazza</li>
+                <li class="list-group-item">Zoom Meetings</li>
+                <li class="list-group-item">Assignments</li>
+                <li class="list-group-item">Quizzes</li>
+                <li class="list-group-item">Grades</li>
+                <li class="list-group-item">People</li>
+                <li class="list-group-item">Panopto Video</li>
+            </ul>
+            <br/>
+            <h5>Items here to hide them from the students.</h5>
+            <p>Disabling most pages will cause students who visit those pages to be redirected to the course home page.</p>
+            <ul class="list-group" style="width: 500px">
+                <li class="list-group-item">
+                    Chat
+                    <p class="fw-light">Page disabled, won't appear in navigation</p>
+                </li>
+                <li class="list-group-item">
+                    Scorm
+                    <p class="fw-light">Page disabled, won't appear in navigation</p>
+                </li>
+                <li class="list-group-item">
+                    Attendance
+                    <p class="fw-light">Page disabled, won't appear in navigation</p>
+                </li>
+                <li class="list-group-item">
+                    Barnes and Noble Bookstone
+                    <p class="fw-light">Page disabled, won't appear in navigation</p>
+                </li>
+                <li class="list-group-item">
+                    Digication
+                    <p class="fw-light">Page disabled, won't appear in navigation</p>
+                </li>
+                <li class="list-group-item">
+                    Top Hat
+                    <p class="fw-light">Page disabled, won't appear in navigation</p>
+                </li>
+                <li class="list-group-item">
+                    Syllabus
+                    <p class="fw-light">Page disabled, won't appear in navigation</p>
+                </li>
+                <li class="list-group-item">
+                    Perusall
+                    <p class="fw-light">Page disabled, won't appear in navigation</p>
+                </li>
+                <li class="list-group-item">
+                    Microsoft Teams Meetings
+                    <p class="fw-light">Page disabled, won't appear in navigation</p>
+                </li>
+                <li class="list-group-item">
+                    FACT Reporting and Photo Roster
+                    <p class="fw-light">Page disabled, won't appear in navigation</p>
+                </li>
+                <li class="list-group-item">
+                    Progress Reports(Navigation)
+                    <p class="fw-light">Page disabled, won't appear in navigation</p>
+                </li>
+                <li class="list-group-item">
+                    Microsoft Teams for Canvas
+                    <p class="fw-light">Page disabled, won't appear in navigation</p>
+                </li>
+                <li class="list-group-item">
+                    VHL Central
+                    <p class="fw-light">Page disabled, won't appear in navigation</p>
+                </li>
+                <li class="list-group-item">
+                    Gradescope 1.3
+                    <p class="fw-light">Page disabled, won't appear in navigation</p>
+                </li>
+                <li class="list-group-item">
+                    Credentials
+                    <p class="fw-light">Page disabled, won't appear in navigation</p>
+                </li>
+                <li class="list-group-item">
+                    iClicker
+                    <p class="fw-light">Page disabled, won't appear in navigation</p>
+                </li>
+
+            </ul>
+            <button class="btn-danger btn mt-2">Save</button>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

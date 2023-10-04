@@ -1,0 +1,131 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.lab{
+    width: 85px;
+}
+a{
+    text-decoration: none;
+}
+.lab ul{
+    padding:0;
+}
+.lab a{
+    color: white;
+    margin-top: 5px;
+}
+.lab ul li{
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 10px;
+}
+.lab .fa{
+    font-size: 30px;
+    color: #C33235;
+    margin-bottom: 5px;
+}
+.lab_active{
+    background: white;
+    color: #C33235;
+}
+.lab_active a{
+    color: #C33235 !important;
+}
+.page_nav{
+    width: 190px;
+}
+.page_nav ul{
+    padding: 0;
+    width: 100%;
+    margin-left: 20px;
+    padding: 10px 0;
+}
+.page_nav li{
+    list-style: none;
+}
+.page_nav li a{
+    display: block;
+    padding: 8px 0 8px 8px;
+    color: #C33235;
+}
+.nav_active{
+    border-left: 2px solid black;
+}
+.nav_active a{
+    color: black !important;
+}
+.flex-box-right{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.dropdown{
+    margin: 0;
+}
+.flex-box-right button{
+    margin-left: 10px;
+}
+hr{
+    margin: 0;
+}
+li{
+    list-style: none;
+}
+
+
+.week_title{
+
+}
+.tab_list li{
+    border-bottom: 1px solid lavender;
+}
+.sm_title{
+    border-bottom: 1px solid lavender;
+}
+button{
+    text-align: center;
+}
+.btn_li{
+    display: none;
+}
+.list_li{
+    display: inline;
+}
+.modal-body a{
+    color: #C33235;
+}
+.modal-body> ul >li {
+    padding: 10px 0;
+}
+.modal-body .fa{
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 1200px){
+    .right_lab{
+        display: none;
+    }
+}
+@media screen and (max-width: 992px){
+    .nav_lab{
+        background: black;
+    }
+    .page_nav{
+        display: none;
+    }
+    .lab{
+        display: none;
+    }
+    .tab_list ul{
+        margin-left: 0;
+        padding: 0 2rem;
+    }
+    .btn_li{
+        display: inline;
+    }
+    .list_li{
+        display: none;
+    }
+}
