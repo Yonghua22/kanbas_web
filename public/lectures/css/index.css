@@ -1,14 +1,159 @@
-p#lorem1{
+:root {
+    --yellow: #0ff166;
+  }
+  
+  .bg-yellow-2 {
+    background-color: var(--yellow);
+  }
+  
+  p#lorem1 {
     background-color: blue;
     color: white;
     font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
-}
-.rotate-paragraph {
-    width: 250px;
-    height: 250px;
-    transform: rotate(90deg);
-}
-/* p{
+  }
+  /* p {
     background-color: red;
-} */
+  } */
+  
+  .wd-flex-row-container {
+    display: flex;
+    flex-direction: row;
+  }
+  .wd-flex-grow-1 {
+    flex-grow: 1;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
