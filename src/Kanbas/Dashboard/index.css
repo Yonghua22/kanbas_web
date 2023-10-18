@@ -1,0 +1,28 @@
+/* Dashboard.css */
+
+.card {
+    width: 18rem; /* 设置卡片的宽度 */
+    margin: 20px; /* 设置卡片之间的间距 */
+  }
+  
+  .card img {
+    max-height: 150px; /* 设置图片的最大高度 */
+  }
+  
+  .card-title {
+    font-size: 1.25rem; /* 设置标题字体大小 */
+  }
+  
+  .card-text {
+    font-size: 1rem; /* 设置文本字体大小 */
+  }
+  
+  .btn-primary {
+    margin-top: 10px; /* 设置按钮与文本之间的间距 */
+  }
+  .custom-card {
+    width: 200px; /* 设置宽度 */
+    height: 300px; /* 设置高度 */
+  }
+  
+  
