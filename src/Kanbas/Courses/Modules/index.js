@@ -2,8 +2,8 @@
 import ModuleList from "./ModuleList";
 function Modules() {
   return (
-    <div>
-      <h2>Modules</h2>
+    <div style={{ width: "90%" }}>
+
       <ModuleList />
     </div>
   );

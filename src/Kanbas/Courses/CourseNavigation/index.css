@@ -19,6 +19,7 @@
   .wd-course-navigation a.active {
     border-left: 2px solid black;
     background-color: white;
+    border-radius: 0px;
   }
   .wd-course-navigation a.active {
     color: black;

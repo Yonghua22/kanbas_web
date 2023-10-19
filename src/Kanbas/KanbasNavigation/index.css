@@ -1,5 +1,7 @@
 .wd-kanbas-navigation .wd-icon {
-    font-size: 2em;
+    
+    font-size: 2.45em;
+    color:red;
   }
   
   .wd-kanbas-navigation .list-group-item:first-child,
@@ -30,6 +32,7 @@
     background-color: white;
   }
   .wd-kanbas-navigation a.active {
+    background-color: white;
     color: red;
   }
   
@@ -43,3 +46,8 @@
     font-size: 2em;
     margin-bottom: 5px;
   }
+  .wd-kanbas-navigation .custom-course-link {
+    background-color: white;
+    color: red;
+  }
+  

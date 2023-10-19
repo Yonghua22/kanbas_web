@@ -1,46 +1,35 @@
-import React from 'react';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-import { Link } from "react-router-dom";
 import db from "../Database";
+import { Link } from "react-router-dom";
 
 function Dashboard() {
-  const courses = [
-    { title: 'CS5610', description: 'Web Development' },
-    { title: 'CS5004', description: 'Introduction to Java' },
-    { title: 'CS5500', description: 'Fundamentals of Computer Science' },
-    { title: 'CS5001', description: 'Python' },
-    { title: 'CS5510', description: 'Linux' },
-    { title: 'CS6750', description: 'C++' },
-    { title: 'CS3400', description: 'C#' },
-    { title: 'CS2100', description: 'JS' },
-  ];
+  const courses = db.courses;
 
   return (
-    <Container>
+    <div>
       <h1>Dashboard</h1>
       <hr />
-      <h2>Published Courses ({db.courses.length})</h2>
-      <Row xs={1} sm={2} md={3} lg={4}>
-        {db.courses.map((course, index) => (
-          <Col key={index}>
-            <Card>
-              <Card.Img variant="top" src=".././images/react.png" />
-              <Card.Body>
-                <Card.name>{course.name}</Card.name>
-                {/* <Card.Text>{course.description}</Card.Text> */}
-                {/* <Button href={`/Kanbas/Courses/${course.title}`} variant="primary"> */}
-                <Link
-              key={course._id}
-              to={`/Kanbas/Courses/${course._id}`}
-              >{course.name}</Link>
-                  
-                {/* </Button> */}
-              </Card.Body>
-            </Card>
-          </Col>
+      <div className="ms-5"> {/* 往右边挪 */}
+      <h2>Published Courses ({courses.length})</h2>
+
+      {/* 使用 Bootstrap 的 d-flex 类实现水平排列 */}
+      <div className="d-flex flex-wrap">
+        {courses.map((course, index) => (
+          <div className="card m-2" style={{ width: "18rem" }}>
+            <img src="/images/react.png" className="card-img-top" alt="..." />
+            <div className="card-body">
+              <h5 className="card-title">{course.name}</h5>
+              <Link to={`/Kanbas/Courses/${course._id}`} className="btn btn-primary">
+                {course.name}
+              </Link>
+              <p className="card-text">
+                This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+              </p>
+            </div>
+          </div>
         ))}
-      </Row>
-    </Container>
+      </div>
+      </div>
+    </div>
   );
 }
 
