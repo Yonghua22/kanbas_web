@@ -132,6 +132,13 @@ a{
         display: none;
     }
 
-
-
+    .btn.btn-d {
+        background-color: lightgray;
+      }
+    .btn.btn-asdf{
+        background-color: N/A;
+      }
+      .green-text {
+        color: green;
+      }
 }

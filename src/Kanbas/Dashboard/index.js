@@ -8,10 +8,9 @@ function Dashboard() {
     <div>
       <h1>Dashboard</h1>
       <hr />
-      <div className="ms-5"> {/* 往右边挪 */}
+      <div className="ms-5"> 
       <h2>Published Courses ({courses.length})</h2>
 
-      {/* 使用 Bootstrap 的 d-flex 类实现水平排列 */}
       <div className="d-flex flex-wrap">
         {courses.map((course, index) => (
           <div className="card m-2" style={{ width: "18rem" }}>
