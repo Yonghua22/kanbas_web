@@ -1,83 +1,71 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import db from "../../Database";
-import { FaEllipsisV } from "react-icons/fa";
-import { GoTriangleRight, GoTriangleDown } from "react-icons/go";
-import { AiFillCheckCircle } from "react-icons/ai";
-import { BsPlus } from "react-icons/bs";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addModule as addModuleAction,
+  deleteModule as deleteModuleAction,
+  updateModule as updateModuleAction,
+  setModule as setModuleAction,
+} from "./modulesReducer";
 
 function ModuleList() {
   const { courseId } = useParams();
-  const modules = db.modules;
-
-  const buttonStyle = {
-    backgroundColor: "lightgrey",
-    color: "black",
-    border: "0.1px",
-    borderRadius: "5px",
-    padding: "10px",
-    marginRight: "3px", // Adjust the margin-right value to your preference
-    cursor: "pointer",
-  };
-  const moduleStyle = {
-    backgroundColor: "red",
-    border: "0.1px",
-    borderRadius: "5px",
-    padding: "10px",
-    marginRight: "3px", // Adjust the margin-right value to your preference
-    cursor: "pointer",
-  };
-
-  // 动态生成列表项的数据
-  const listItemsData = [
-    { text: "Resources" },
-    { text: "Required Textbook" },
-    { text: "Week0 - INTRO" },
-    { text: "Week1 - HTML" },
-  ];
+  const currentModule = useSelector((state) => state.modulesReducer.module);
+  const modulesFromRedux = useSelector((state) => state.modulesReducer.modules); // Retrieve modules from Redux store
+  const dispatch = useDispatch();
 
   return (
-    <div >
-      <div className="module-controls">
-        <button style={buttonStyle} className="btn btn-primary">
-          Collapse All
-        </button>
-        <button style={buttonStyle} className="btn btn-secondary">
-          View Progress
-        </button>
-        <button style={buttonStyle} className="btn btn-success">
-          <AiFillCheckCircle /> Publish All
-        </button>
-        <button style={moduleStyle} className="btn btn-danger">
-          + Module <BsPlus />
-        </button>
-        <button style={buttonStyle} className="btn btn-danger">
-          <FaEllipsisV />
-        </button>
-        <hr />
-      </div>
-      <div>
-        <ul className="list-group">
-          {listItemsData.map((item, index) => (
-            <li
-              key={index}
-              className="list-group-item d-flex justify-content-between align-items-center bg-light p-4 mb-3"
-            >
-              <div className="d-flex align-items-center">
-                <FaEllipsisV className="icon-spacing" />
-                <GoTriangleRight />
-                <span>{item.text}</span>
-              </div>
-              <div className="icon-container">
-                <AiFillCheckCircle className="text-success icon-spacing" />
-                <GoTriangleDown className="icon-spacing" />
-                <BsPlus className="icon-spacing" />
-                <FaEllipsisV />
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+    <div className="container">
+      <ul className="list-group mt-5">
+        <li className="list-group-item">
+          <div className="row">
+            <div className="col">
+              <input
+                value={currentModule.name}
+                onChange={(e) => dispatch(setModuleAction({ ...currentModule, name: e.target.value }))}
+                className="form-control mb-2"
+                placeholder="New Module"
+              />
+              <input
+                value={currentModule.description}
+                onChange={(e) => dispatch(setModuleAction({ ...currentModule, description: e.target.value }))}
+                className="form-control"
+                placeholder="New Description"
+              />
+            </div>
+
+            <div className="col-auto">
+              <button onClick={() => dispatch(updateModuleAction(currentModule))} className="btn btn-primary">
+                Update
+              </button>
+              <button 
+                onClick={() => dispatch(addModuleAction({ ...currentModule, course: courseId }))}
+                className="btn btn-success">
+                Add
+              </button>
+            </div>
+          </div>
+        </li>
+        <div>
+          {modulesFromRedux
+            .filter((module) => module.course === courseId)
+            .map((module, index) => (
+              <li key={index} className="list-group-item position-relative">
+                <h3>{module.name}</h3>
+                <p>{module.description}</p>
+                <p>{module._id}</p>
+                <div className="col-auto position-absolute top-0 end-0">
+                  <button className="btn btn-danger" onClick={() => dispatch(deleteModuleAction(module._id))}>
+                    Delete
+                  </button>
+                  <button className="btn btn-success" onClick={() => dispatch(setModuleAction(module))}>
+                    Edit
+                  </button>
+                </div>
+              </li>
+            ))}
+        </div>
+      </ul>
     </div>
   );
 }

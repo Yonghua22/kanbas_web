@@ -1,28 +1,125 @@
-/* Dashboard.css */
-
-.card {
-    width: 18rem; /* 设置卡片的宽度 */
-    margin: 20px; /* 设置卡片之间的间距 */
+[上午12:12] Mianyun Ni
+.wd-dashbord-navigation{
+    background-color: white;
+    list-style: none;
+    padding: 0px;
+    width:120px;
+    margin: 0px;
+    margin-left: 20px;
+}
+.wd-dashbord-navigation li{
+    padding-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.wd-dashbord-navigation li.wd-active{
+    border-left: 2px solid black;
+}
+.wd-dashbord-navigation li.wd-active a {
+    color: black;
+}
+.wd-dashbord-navigation a {
+    color: red;
+    text-decoration: none;
+}
+ 
+.nav-link {
+    color: red;
   }
   
-  .card img {
-    max-height: 150px; /* 设置图片的最大高度 */
+  .wd-fixed-top-margin {
+    margin-top: 70px;
   }
   
-  .card-title {
-    font-size: 1.25rem; /* 设置标题字体大小 */
+  /** Dashboard **/
+  
+  .wd-dashboard-grid .col {
+    width: 300px;
+    margin-left: 40px;
   }
   
-  .card-text {
-    font-size: 1rem; /* 设置文本字体大小 */
+  .wd-dashboard {
+    width: 300px;
   }
   
-  .btn-primary {
-    margin-top: 10px; /* 设置按钮与文本之间的间距 */
-  }
-  .custom-card {
-    width: 200px; /* 设置宽度 */
-    height: 300px; /* 设置高度 */
+  /** Kanbas Navigation **/
+  
+  .wd-kanbas-navigation.list-group {
+    border-radius: 0;
   }
   
+  .wd-kanbas-navigation .list-group-item {
+    color: white;
+    background-color: black;
+    border: none;
+  }
   
+  .wd-kanbas-navigation .list-group-item.active {
+    color: black;
+    background-color: white;
+    border-color: white;
+    border: 2px solid black;
+  }
+  
+  /** Course Navigation **/
+  
+  .wd-course-navigation.list-group {
+    border-radius: 0;
+  }
+  
+  .wd-course-navigation .list-group-item {
+    color: red;
+    background-color: var(--bs-list-group-bg);
+    border: none;
+  }
+  
+  .wd-course-navigation .list-group-item.active {
+    color: black;
+    background-color: white;
+    border-color: white;
+    border-left: 2px solid black;
+  }
+  .nav-link {
+    color: red;
+  }
+  
+  .wd-fixed-top-margin {
+    margin-top: 70px;
+  }
+  
+  /** Dashboard **/
+  
+  .wd-dashboard-grid .col {
+    width: 300px;
+  }
+  
+  .wd-dashboard {
+    width: 300px;
+  }
+  
+  /** Kanbas Navigation **/
+  
+  .wd-kanbas-navigation.list-group {
+    border-radius: 0;
+  }
+  
+  .wd-kanbas-navigation .list-group-item {
+    color: white;
+    background-color: black;
+    border: none;
+  }
+  
+  .wd-kanbas-navigation .list-group-item.active {
+    color: black;
+    background-color: white;
+    border-color: white;
+    border: 2px solid black;
+  }
+  .course-container {
+    margin: 20px; /* 或者根据需要调整具体的数值 */
+  }
+  .dashboard-container {
+    margin-right: 20px; /* 调整右侧间距 */
+  }

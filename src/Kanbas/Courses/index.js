@@ -2,7 +2,6 @@ import React from "react";
 import { useParams, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import JsonPre from "../../Labs/a3/JsonPre";
 
-import db from "../Database";
 import CourseNavigation from "./CourseNavigation";
 import Modules from "./Modules";
 import Home from "./Home";
@@ -12,16 +11,19 @@ import Grades from "./Grades";
 
 import {HiBars3} from "react-icons/hi2";
 
-function Courses() {
+
+function Courses({ courses }) {  // Accept courses as a prop
   const { courseId } = useParams();
-  const {pathname} = useLocation();
-  const [empty, kanbas, courses, id, screen] = pathname.split("/");
-  const course = db.courses.find((course) => course._id === courseId);
+  const { pathname } = useLocation();
+  const [empty, kanbas, , id, screen] = pathname.split("/");
+  
+  // Find the course by its ID from the courses prop
+  const course = courses.find(courseItem => courseItem._id === courseId);
+
   return (
     <div>
       <h3 style={{ color: 'red' }}>
-        <HiBars3 className="wd-icon"/> {course.name} / {screen}
-        
+        <HiBars3 className="wd-icon"/> {course && course.name} / {screen}
       </h3>
       <hr />
       <CourseNavigation />
@@ -31,15 +33,13 @@ function Courses() {
           style={{
             left: "320px",
             top: "50px",
-        
           }}
         >
-          <Routes >
-            <Route  path="/" element={<Navigate to="Home" />} />
+          <Routes>
+            <Route path="/" element={<Navigate to="Home" />} />
             <Route path="Home" element={<Home/>} />
             <Route path="Modules" element={<Modules/>} />
             <Route path="Assignments" element={<Assignments/>} />
-
             <Route
               path="Assignments/:assignmentId"
               element={<AssignmentEditor/>}
@@ -48,7 +48,6 @@ function Courses() {
           </Routes>
         </div>
       </div>
-
     </div>
   );
 }

@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
+
 root.render(<App />, document.getElementById("root"));
 // jsx mixture of javascript and xml
 root.render(
