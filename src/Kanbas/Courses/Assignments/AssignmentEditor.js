@@ -150,19 +150,19 @@ function AssignmentEditor() {
 
   const { assignmentId } = useParams();
 
-  const assignment = db.assignments.find((assignment) => assignment._id === assignmentId);
+  // const assignment = db.assignments.find((assignment) => assignment._id === assignmentId);
 
   const [title, setTitle] = useState(assignment?.title || "");
-
+  const { assignment } = useSelector((state) => state.assignmentsReducer);
   const [description, setDescription] = useState("");
 
-  const [points, setPoints] = useState("");
+  // const [points, setPoints] = useState("");
 
-  const [dueDate, setDueDate] = useState("");
+  // const [dueDate, setDueDate] = useState("");
 
-  const [availableFrom, setAvailableFrom] = useState("");
+  // const [availableFrom, setAvailableFrom] = useState("");
 
-  const [availableUntil, setAvailableUntil] = useState("");
+  // const [availableUntil, setAvailableUntil] = useState("");
 
   const { courseId } = useParams();
 
