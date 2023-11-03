@@ -16,13 +16,13 @@
 // export default store;
 import { configureStore } from "@reduxjs/toolkit";
 import modulesReducer from "../Courses/Modules/modulesReducer";
-import AssignmentsReducer from "../Courses/Assignments/AssignmentsReducer";
+import assignmentsReducer from "../Courses/Assignments/assignmentsReducer";
  
  
 const store = configureStore({
   reducer: {
     modulesReducer,
-    AssignmentsReducer,
+    assignmentsReducer,
   }
 });
  

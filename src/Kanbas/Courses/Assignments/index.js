@@ -9,14 +9,14 @@ import {
   deleteAssignment,
   updateAssignment,
   selectAssignment,
-} from "./AssignmentsReducer";
+} from "./assignmentsReducer";
  
  
 function Assignments() {
   const { courseId } = useParams();
   // const assignments = db.assignments;
-  const { assignments } = useSelector((state) => state.AssignmentsReducer);
-  const { assignment } = useSelector((state) => state.AssignmentsReducer);
+  const { assignments } = useSelector((state) => state.assignmentsReducer);
+  const { assignment } = useSelector((state) => state.assignmentsReducer);
   const dispatch = useDispatch();
  
   return (

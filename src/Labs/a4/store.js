@@ -4,6 +4,7 @@ import helloReducer from "./ReduxExamples/HelloRedux/helloReducer";
 const store = configureStore({
     reducer: {
         helloReducer
+        
     }
 })
 
