@@ -1,134 +1,70 @@
-
-import{VscNotebook} from "react-icons/vsc";
-
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import db from "../../Database";
-import { BsPlus } from 'react-icons/bs';
-import { HiOutlineEllipsisVertical } from 'react-icons/hi2';
-import { IoEllipsisVerticalSharp } from 'react-icons/io5';
-import { AiFillCheckCircle } from 'react-icons/ai';
-import { IoFillCheckCircle } from 'react-icons/io';
 import "./index.css";
+import { AiOutlinePlus } from "react-icons/ai";
+import { PiDotsThreeVerticalBold } from "react-icons/pi";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addAssignment,
+  deleteAssignment,
+  updateAssignment,
+  selectAssignment,
+} from "./AssignmentsReducer";
+ 
  
 function Assignments() {
-
   const { courseId } = useParams();
-
-  const assignments = db.assignments;
-
-  const courseAssignments = assignments.filter(
-
-    (assignment) => assignment.course === courseId);
-
-  return (
-
-    <div>
-
-      <div className="d-flex align-items-center justify-content-between mt-3" style={{ backgroundColor: '#ffffff', padding: '10px', borderRadius: '5px' }}>
-
-        <input
-
-          type="text"
-
-          className="form-control mr-2"
-
-          placeholder="Search for Assignment"
-
-          style={{ width: '200px', backgroundColor: '#f8f9fa', color: '#555', border: 'none' }}
-
-        />
-
-        <div className="d-flex">
-
-          <button className="btn btn-light mr-2"><BsPlus /> Group</button>
-          
-          <Link to="../Assignments/A101">
-          <button className="btn btn-danger">
-          <BsPlus /> Assignment
-          </button>
-          </Link>
-
-          <button className="btn btn-light mr-2"><HiOutlineEllipsisVertical /></button>
-
-        </div>
-
-      </div>
-
-      <hr />
-
-      <div style={{ backgroundColor: '#f0f0f0', padding: '10px', borderRadius: '5px', display: 'flex', justifyContent: 'space-between' }}>
-
-        <div className="d-flex align-items-center">
-
-          <div style={{ marginRight: '5px' }}>
-
-            <IoEllipsisVerticalSharp />
-
-          </div>
-
-          <span>&#9660;</span>
-
-          <div style={{ marginLeft: '5px' }}>ASSIGNMENTS</div>
-
-        </div>
-
-        <div className="d-flex">
-
-          <button className="btn btn-secondary btn-sm">40% of Total</button>
-
-          <BsPlus style={{ marginLeft: '10px' }} />
-
-          <HiOutlineEllipsisVertical />
-
-        </div>
-
-      </div>
-
+  // const assignments = db.assignments;
+  const { assignments } = useSelector((state) => state.AssignmentsReducer);
+  const { assignment } = useSelector((state) => state.AssignmentsReducer);
+  const dispatch = useDispatch();
  
-
-      <div className="list-group">
-
-        {courseAssignments.map((assignment) => (
-
-          <Link
-
-            key={assignment._id}
-
-            to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
-
-            className="list-group-item d-flex justify-content-between align-items-center"
-
-          >
-
-            <div>
-
-              <IoEllipsisVerticalSharp style={{ marginRight: '5px' }} />
-
-              <VscNotebook style={{ marginRight: '5px', color: 'green' }} />
-
-              {assignment.title}
-
-            </div>
-
-            <div className="d-flex">
-
-              <AiFillCheckCircle style={{ marginRight: '5px', color: 'green' }} />
-
-              <IoEllipsisVerticalSharp />
-
-            </div>
-
-          </Link>
-
-        ))}
-
+  return (
+    <div>
+      <div className="d-flex align-items-center">
+        <input
+          type="text"
+          className="form-control w-50"
+          defaultValue="Search for Assignment"
+        />
+        <button className="btn btn-light ms-2">
+          <PiDotsThreeVerticalBold />
+        </button>
+        <button className="btn btn-light ms-2">
+          <AiOutlinePlus /> Group
+        </button>
+        <Link
+          to={`/Kanbas/Courses/${courseId}/Assignments/AssignmentEditor?isNewAssignment=true`}
+          className="btn btn-danger ms-2">
+          <AiOutlinePlus /> Assignment
+        </Link>
       </div>
-
+      <hr />
+      <div className="wd-courses-assignments list-group">
+        {assignments
+          .filter((assignment) => assignment.course === courseId)
+          .map((assignment) => (
+            <Link
+              key={assignment._id}
+              to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
+              className="list-group-item">
+              {assignment.title}
+              <button
+                navigate={`/Kanbas/Courses/${courseId}/Assignments/AssignmentEditor`}
+                className="btn btn-success float-end ms-2"
+                onClick={() => dispatch(selectAssignment(assignment))}>
+                Edit
+              </button>
+ 
+              <button
+                className="btn btn-danger float-end ms-2"
+                onClick={() => dispatch(deleteAssignment(assignment._id))}>
+                Delete
+              </button>
+            </Link>
+          ))}
+      </div>
     </div>
-
   );
-
 }
-
 export default Assignments;

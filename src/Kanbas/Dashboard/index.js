@@ -6,6 +6,15 @@ function Dashboard() {
   const [courses, setCourses] = useState(db.courses);
   const [selectedCourseId, setSelectedCourseId] = useState(null);
   const [courseInput, setCourseInput] = useState("");
+  const course = {
+    name: "New Course",      number: "New Number",
+    startDate: "2023-09-10", endDate: "2023-12-15",
+  };
+  const addNewCourse = () => {
+    setCourses([...courses,
+              { ...course,
+                _id: new Date().getTime() }]);
+  };
 
   const addCourse = () => {
     setCourses([...courses, { _id: Date.now().toString(), name: courseInput }]);
@@ -34,6 +43,9 @@ function Dashboard() {
       <h2>Published Courses({courses.length})</h2>
       <hr />
       <div className="input-group">
+     
+
+
         <input
           type="text"
           className="form-control"
@@ -41,6 +53,7 @@ function Dashboard() {
           value={courseInput}
           onChange={(e) => setCourseInput(e.target.value)}
         />
+      
         <div className="input-group-append">
           <button onClick={addCourse} className="btn btn-success">Add</button>
           <button onClick={updateCourse} className="btn btn-info">Update</button>
