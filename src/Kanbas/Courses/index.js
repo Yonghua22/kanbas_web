@@ -15,7 +15,7 @@ import {HiBars3} from "react-icons/hi2";
 function Courses({ courses }) {  // Accept courses as a prop
   const { courseId } = useParams();
   const { pathname } = useLocation();
-  const [empty, kanbas, , id, screen] = pathname.split("/");
+  const [empty, kanbas, id, screen] = pathname.split("/");
   
   // Find the course by its ID from the courses prop
   const course = courses.find(courseItem => courseItem._id === courseId);

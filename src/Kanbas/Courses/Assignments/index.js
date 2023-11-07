@@ -10,7 +10,8 @@ import {
   updateAssignment,
   selectAssignment,
 } from "./assignmentsReducer";
- 
+import CourseNavigation from "../CourseNavigation";
+ import { HiBars3 } from "react-icons/hi2";
  
 function Assignments() {
   const { courseId } = useParams();
@@ -18,9 +19,21 @@ function Assignments() {
   const { assignments } = useSelector((state) => state.assignmentsReducer);
   const { assignment } = useSelector((state) => state.assignmentsReducer);
   const dispatch = useDispatch();
+  
  
   return (
-    <div>
+   <div>
+      <h3 style={{ color: 'red' }}>
+        <HiBars3 className="wd-icon"/> {assignment && assignment.name} / {assignment._id}
+      </h3>
+      <hr />
+  <div className="d-flex align-items-center">
+    {/* Content from CourseNavigation */}
+   
+    <CourseNavigation />
+   
+
+    <div className="ml-3">
       <div className="d-flex align-items-center">
         <input
           type="text"
@@ -55,7 +68,6 @@ function Assignments() {
                 onClick={() => dispatch(selectAssignment(assignment))}>
                 Edit
               </button>
- 
               <button
                 className="btn btn-danger float-end ms-2"
                 onClick={() => dispatch(deleteAssignment(assignment._id))}>
@@ -65,6 +77,9 @@ function Assignments() {
           ))}
       </div>
     </div>
+  </div>
+</div>
+
   );
 }
 export default Assignments;
