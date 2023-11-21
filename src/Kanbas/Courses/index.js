@@ -8,27 +8,40 @@ import Home from "./Home";
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/AssignmentEditor";
 import Grades from "./Grades";
+import { useState, useEffect } from "react";
+import { HiBars3 } from "react-icons/hi2";
+import axios from "axios";
 
-import {HiBars3} from "react-icons/hi2";
-
-
-function Courses({ courses }) {  // Accept courses as a prop
+function Courses() {  // Accept courses as a prop
   const { courseId } = useParams();
   const { pathname } = useLocation();
+  const URL = "http://localhost:4000/api/courses";
+  const [course, setCourse] = useState({});
+  const findCourseById = async (courseId) => {
+    const response = await axios.get(
+      `${URL}/${courseId}`
+    );
+    setCourse(response.data);
+  };
+
+
   const [empty, kanbas, id, screen] = pathname.split("/");
-  
-  // Find the course by its ID from the courses prop
-  const course = courses.find(courseItem => courseItem._id === courseId);
+
+  useEffect(() => {
+    findCourseById(courseId);
+  }, [courseId]);
+
 
   return (
     <div>
+
       <h3 style={{ color: 'red' }}>
-        <HiBars3 className="wd-icon"/> {course && course.name} / {screen}
+        <HiBars3 className="wd-icon" /> {course && course.name} / {screen}
       </h3>
       <hr />
       <CourseNavigation />
       <div>
-        <div 
+        <div
           className="overflow-y-scroll position-fixed bottom-0 end-0"
           style={{
             left: "320px",
@@ -37,14 +50,14 @@ function Courses({ courses }) {  // Accept courses as a prop
         >
           <Routes>
             <Route path="/" element={<Navigate to="Home" />} />
-            <Route path="Home" element={<Home/>} />
-            <Route path="Modules" element={<Modules/>} />
-            <Route path="Assignments" element={<Assignments/>} />
+            <Route path="Home" element={<Home />} />
+            <Route path="Modules" element={<Modules />} />
+            <Route path="Assignments" element={<Assignments />} />
             <Route
               path="Assignments/:assignmentId"
-              element={<AssignmentEditor/>}
+              element={<AssignmentEditor />}
             />
-            <Route path="Grades" element={<Grades/>} />
+            <Route path="Grades" element={<Grades />} />
           </Routes>
         </div>
       </div>

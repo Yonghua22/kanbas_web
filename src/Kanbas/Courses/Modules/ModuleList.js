@@ -1,18 +1,45 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
 import {
   addModule as addModuleAction,
   deleteModule as deleteModuleAction,
   updateModule as updateModuleAction,
   setModule as setModuleAction,
+  setModules,
 } from "./modulesReducer";
+import * as client from "./client";
 
 function ModuleList() {
   const { courseId } = useParams();
+  useEffect(() => {
+    client.findModulesForCourse(courseId)
+      .then((modules) =>
+        dispatch(setModules(modules))
+      );
+  }, [courseId]);
+
   const currentModule = useSelector((state) => state.modulesReducer.module);
   const modulesFromRedux = useSelector((state) => state.modulesReducer.modules); // Retrieve modules from Redux store
   const dispatch = useDispatch();
+  const handleAddModule = () => {
+    client.createModule(courseId, module).then((module) => {
+      dispatch(addModuleAction(module));
+    });
+  };
+
+  const handleDeleteModule = (moduleId) => {
+    client.deleteModule(moduleId).then((status) => {
+      dispatch(deleteModuleAction(moduleId));
+    });
+  };
+
+  const handleUpdateModule = async () => {
+    const status = await client.updateModule(module);
+    dispatch(updateModuleAction(module));
+  };
+
 
   return (
     <div className="container">
@@ -35,11 +62,11 @@ function ModuleList() {
             </div>
 
             <div className="col-auto">
-              <button onClick={() => dispatch(updateModuleAction(currentModule))} className="btn btn-primary">
+              <button onClick={() => handleUpdateModule} className="btn btn-primary">
                 Update
               </button>
-              <button 
-                onClick={() => dispatch(addModuleAction({ ...currentModule, course: courseId }))}
+              <button
+                onClick={handleAddModule}
                 className="btn btn-success">
                 Add
               </button>
@@ -55,7 +82,7 @@ function ModuleList() {
                 <p>{module.description}</p>
                 <p>{module._id}</p>
                 <div className="col-auto position-absolute top-0 end-0">
-                  <button className="btn btn-danger" onClick={() => dispatch(deleteModuleAction(module._id))}>
+                  <button className="btn btn-danger" onClick={() => handleDeleteModule(module._id)}>
                     Delete
                   </button>
                   <button className="btn btn-success" onClick={() => dispatch(setModuleAction(module))}>
