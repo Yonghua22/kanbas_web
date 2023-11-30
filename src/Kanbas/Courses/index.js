@@ -1,68 +1,52 @@
-import React from "react";
-import { useParams, Routes, Route, Navigate, useLocation } from "react-router-dom";
-import JsonPre from "../../Labs/a3/JsonPre";
-
-import CourseNavigation from "./CourseNavigation";
-import Modules from "./Modules";
+import {Navigate, Route, Routes, useParams} from "react-router-dom";
+import {useEffect, useState} from "react";
+import "./index.css";
+import CourseHeader from "./CourseHeader";
 import Home from "./Home";
+import Modules from "./Modules";
 import Assignments from "./Assignments";
-import AssignmentEditor from "./Assignments/AssignmentEditor";
 import Grades from "./Grades";
-import { useState, useEffect } from "react";
-import { HiBars3 } from "react-icons/hi2";
+import CourseNavigation from "./CourseNavigation";
 import axios from "axios";
 
-function Courses() {  // Accept courses as a prop
-  const { courseId } = useParams();
-  const { pathname } = useLocation();
+function Courses() {
+  const {courseId} = useParams();
   const URL = "http://localhost:4000/api/courses";
-  const [course, setCourse] = useState({});
+  const [course, setCourse] = useState([]);
+
   const findCourseById = async (courseId) => {
-    const response = await axios.get(
-      `${URL}/${courseId}`
-    );
+    const response = await axios.get(`${URL}/${courseId}`);
     setCourse(response.data);
   };
-
-
-  const [empty, kanbas, id, screen] = pathname.split("/");
-
   useEffect(() => {
     findCourseById(courseId);
   }, [courseId]);
 
-
   return (
-    <div>
-
-      <h3 style={{ color: 'red' }}>
-        <HiBars3 className="wd-icon" /> {course && course.name} / {screen}
-      </h3>
-      <hr />
-      <CourseNavigation />
-      <div>
-        <div
-          className="overflow-y-scroll position-fixed bottom-0 end-0"
-          style={{
-            left: "320px",
-            top: "50px",
-          }}
-        >
-          <Routes>
-            <Route path="/" element={<Navigate to="Home" />} />
-            <Route path="Home" element={<Home />} />
-            <Route path="Modules" element={<Modules />} />
-            <Route path="Assignments" element={<Assignments />} />
-            <Route
-              path="Assignments/:assignmentId"
-              element={<AssignmentEditor />}
-            />
-            <Route path="Grades" element={<Grades />} />
-          </Routes>
+      <>
+        <CourseHeader course={course}/>
+        <div className="row mt-4 px-3 px-md-0">
+          <div className="col-md-2 d-none d-md-block">
+            <div className="row">
+              <div className="col">
+                <p className="wd-course-id">{course.term}</p>
+              </div>
+            </div>
+            <CourseNavigation/>
+          </div>
+          <div className="col col-md-10">
+            <Routes>
+              <Route path="/" element={<Navigate to="Home"/>}/>
+              <Route path="Home" element={<Home/>}/>
+              <Route path="Modules" element={<Modules/>}/>
+              <Route path="Assignments" element={<Assignments/>}/>
+              <Route path="Grades" element={<Grades/>}/>
+              {/* <Route path="AddAssignment" element={<AddEditAssignment/>}/> */}
+              {/* <Route path="EditAssignment/:assignmentId" element={<AddEditAssignment/>}/> */}
+            </Routes>
+          </div>
         </div>
-      </div>
-    </div>
+      </>
   );
 }
-
 export default Courses;

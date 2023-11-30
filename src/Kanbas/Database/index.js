@@ -1,9 +1,9 @@
-import courses from "./courses.json";
-import modules from './modules.json'
-import assignments from './assignments.json'
-import users from "./users.json"
-import grades from "./grades.json"
-import enrollments from "./enrollments.json"
+import courses from "../Database/courses.json";
+import modules from "../Database/modules.json";
+import assignments from "../Database/assignments.json";
+import users from "../Database/users.json";
+import grades from "../Database/grades.json";
+import enrollments from "../Database/enrollments.json";
 
 export default {
   courses,
@@ -12,4 +12,4 @@ export default {
   users,
   grades,
   enrollments
-};
+}
