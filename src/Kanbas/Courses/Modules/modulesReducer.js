@@ -15,7 +15,7 @@ const modulesSlice = createSlice({
       state.modules = action.payload;
     },
     addModule: (state, action) => {
-      state.modules = [action.payload, ...state.modules];
+      state.modules = [         { ...action.payload, _id: new Date().getTime().toString() },           ...state.modules,       ];
     },
     deleteModule: (state, action) => {
       state.modules = state.modules.filter(
@@ -31,6 +31,21 @@ const modulesSlice = createSlice({
         }
       });
     },
+    // updateModule(state, action) {
+    //   state.modules = state.modules.map((module) => {
+    //     if (module._id === action.payload.moduleId) {
+    //       return {
+    //         ...module,
+    //         weeks: [
+    //           ...module.weeks.slice(0, action.payload.index),
+    //           action.payload.week,
+    //           ...module.weeks.slice(action.payload.index + 1),
+    //         ]
+    //       }
+    //     }
+    //     return module;
+    //   });
+    // },
     setModule: (state, action) => {
       state.module = action.payload;
     },
