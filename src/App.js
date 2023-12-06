@@ -13,6 +13,7 @@ import Table from "./project/users/table";
 import Client from "./project/users/client";
 import Account from "./project/users/account";
 
+
 function App() {
   return (
     <HashRouter>
@@ -31,6 +32,7 @@ function App() {
           <Route path="/account" element={<Account />} />
           <Route path="/table" element={<Table />} />
           <Route path="/client" element={<client />} />
+          <Route path="/project/*" element={<Project />} />
           <Route path="/Kanbas/*" element={<Kanbas />} />
           <Route path="/Lectures" element={<StateManagement />} />
           <Route path="/project/*" element={<Project/>} />

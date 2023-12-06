@@ -24,11 +24,11 @@ function Project() {
           <Routes>
             <Route path="/account" element={<Account />} />
             <Route path="/account/:id" element={<Account />} />
-            <Route path="/admin" element={<Admin />} />
+            {/* <Route path="/admin" element={<Admin />} /> */}
             <Route path="/admin/users" element={<UserTable />} />
             {/* <Route path="/admin/users" element={<h1>Test</h1>} /> */}
             <Route path="/" element={<Navigate to="/project/home" />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/Home " element={<Home />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/signin" element={<Signin />} />
             <Route path="/courses" element={<CourseList />} />
