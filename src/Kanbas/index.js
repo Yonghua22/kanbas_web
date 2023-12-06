@@ -8,10 +8,10 @@ import db from "./Database";
 import { useEffect, useState } from "react";
 import store from "./store";
 import { Provider } from "react-redux";
-import Signin from "../users/Signin";
-import Account from "../users/Account";
-import UserTable from "../users/Table";
-import Signup from "../users/Signup";
+import Signin from "../project/users/signin";
+import Account from "../project/users/account";
+import UserTable from "../project/users/table";
+import Signup from "../project/users/signup";
 
 function Kanbas() {
   const [courses, setCourses] = useState(db.courses);

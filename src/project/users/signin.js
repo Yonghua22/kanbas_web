@@ -18,7 +18,7 @@
 //   );
 // }
 // export default Signin;
-import * as client from "./Client";
+import * as client from "./client";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 

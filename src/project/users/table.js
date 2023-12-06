@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {BsTrash3Fill, BsPlusCircleFill, BsFillCheckCircleFill, BsPencil} from "react-icons/bs";
-import * as client from "./Client";
+import * as client from "./client";
+
 
 function UserTable() {
   const [users, setUsers] = useState([]);
@@ -54,6 +55,7 @@ function UserTable() {
   useEffect(() => {
     fetchUsers();
   }, []);
+
 
   return (
     <div className="container mt-5">
